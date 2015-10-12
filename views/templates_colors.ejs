@@ -1,0 +1,10 @@
+<h1>count: <%= count %></h1>
+<p>
+	<% for (var i = 1; i <= count; i++) { %>
+		<%= i %>.. 
+	<% } %>
+</p>
+<p>
+	Your color is: 
+	<%= colors[Math.round(Math.random() * (colors.length - 1))] %>
+</p>

@@ -1,0 +1,17 @@
+body {
+  padding-top: 10px;
+}
+
+.test {
+	font-style: italic;
+	margin-left: 200px;
+	background-color: red;
+}
+
+[class*="col-"], footer {
+  background-color: lightgreen;
+  border: 2px solid black;
+  border-radius: 6px;
+  line-height: 40px;
+  text-align: center;
+}
