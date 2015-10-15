@@ -4,7 +4,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.get('/picture', function(req, res) {
-	res.render('picture_test.ejs');
+	res.render('tuto_bootstrap.ejs');
 })
 
 .listen(2121, function() {
