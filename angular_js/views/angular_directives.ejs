@@ -58,6 +58,14 @@ Total in dollar: {{ quantity * price }}
 
 </div>
 
-<script src="namesController.js"></script> 
+<script>
+	angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        {name:'Lucas',country:'Sweden'},
+        {name:'Hege',country:'Sweden'},
+        {name:'Kai',country:'Denmark'}
+    ];
+});
+</script> 
 </body>
 </html> 
