@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+</head>
+<body>
+
+	<section id="todoapp">
+		<header id="header">
+			<h1>Todo List</h1>
+			<form action="#" id="todo-form">
+				<input type="text" id="new-todo" placeholder="Nouvelle tache"
+				autofocus autocomplete="off">
+			</form>
+		</header>
+
+		<section id="main">
+			<ul id="todo-list">
+				<li>
+					<div class="view">
+						<input type="checkbox" class="toggle">
+						<label>Etendre le linge</label>
+						<button class="destroy"></button>
+					</div>
+					<form action="#">
+						<input class="edit" value="etendre le linge">
+					</form>
+				</li>
+			</ul>
+		</section>
+
+		<footer id="footer">
+			<span id="todo-count"><strong>3</strong> Taches restantes</span>
+		</footer>
+
+	</section>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+</body>
+</html>
