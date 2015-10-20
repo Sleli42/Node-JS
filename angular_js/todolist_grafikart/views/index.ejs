@@ -5,34 +5,35 @@
 	<title></title>
 	<link type="text/css" href="/css/base.css" rel="stylesheet">
 </head>
-<body ng-app>
+<body ng-app="Todo">
 
 	<section id="todoapp" ng-controller="TodoCtrl">
 		<header id="header">
 			<h1>Todo List</h1>
-			<form action="#" id="todo-form">
-				<input type="text" id="new-todo" placeholder="Nouvelle tache"
-				autofocus autocomplete="off">
+			<form action="#" id="todo-form" ng-submit="addTodo()">
+				<input type="text" id="new-todo" placeholder="{{placeholder}}"
+				autofocus autocomplete="off" ng-model="newTodo">
 			</form>
 		</header>
 
 		<section id="main">
+			<input type="checkbox" id="toggle-all" ng-model="allCheck" ng-click="checkAllTodo(allCheck)">
 			<ul id="todo-list">
-				<li ng-repeat="todo in todos" ng-class="{completed : todo.completed}">
+				<li ng-repeat="todo in todos" ng-class="{completed : todo.completed, editing: todo.editing}" ng-dblclick="todo.editing = true">
 					<div class="view">
-						<input type="checkbox" class="toggle">
+						<input type="checkbox" class="toggle" ng-model="todo.completed">
 						<label>{{todo.name}}</label>
-						<button class="destroy"></button>
+						<button class="destroy" ng-click="removeTodo($index)"></button>
 					</div>
 					<form action="#">
-						<input class="edit" value="etendre le linge">
+						<input class="edit" ng-model="todo.name" ng-blur="editTodo(todo)">
 					</form>
 				</li>
 			</ul>
 		</section>
 
 		<footer id="footer">
-			<span id="todo-count"><strong></strong> Taches restantes</span>
+			<span id="todo-count"><strong>{{remaining}}</strong> Taches restantes</span>
 		</footer>
 
 	</section>
