@@ -3,11 +3,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link type="text/css" href="/css/base.css" rel="stylesheet">
 </head>
-<body>
+<body ng-app>
 
-	<section id="todoapp">
+	<section id="todoapp" ng-controller="TodoCtrl">
 		<header id="header">
 			<h1>Todo List</h1>
 			<form action="#" id="todo-form">
@@ -18,10 +18,10 @@
 
 		<section id="main">
 			<ul id="todo-list">
-				<li>
+				<li ng-repeat="todo in todos" ng-class="{completed : todo.completed}">
 					<div class="view">
 						<input type="checkbox" class="toggle">
-						<label>Etendre le linge</label>
+						<label>{{todo.name}}</label>
 						<button class="destroy"></button>
 					</div>
 					<form action="#">
@@ -32,11 +32,12 @@
 		</section>
 
 		<footer id="footer">
-			<span id="todo-count"><strong>3</strong> Taches restantes</span>
+			<span id="todo-count"><strong></strong> Taches restantes</span>
 		</footer>
 
 	</section>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
 </body>
 </html>
