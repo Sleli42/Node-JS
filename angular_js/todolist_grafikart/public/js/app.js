@@ -1,12 +1,24 @@
 var app = angular.module('Todo', []);
 
-function TodoCtrl($scope, filterFilter, $http) {
+app.directive('ngBlur', function() {
+	return function(scope, elem, attrs) {
+		elem.bind('blur', function() {
+			scope.$apply(attrs.ngBlur);
+		})
+	}
+})
+
+app.controller('TodoCtrl', function TodoCtrl($scope, filterFilter, $http, $location) {
 	$scope.todos = [];
 	$scope.placeholder = "Chargement...";
+	$scope.statusFilter = {};
 
-	$http.get("todo.php").success(function(data) {
+	$http.get('php/todo.php').success(function(data) {
 		$scope.todos = data;
 		$scope.placeholder = "Nouvelle Tâche";
+	})
+						   .error(function(data) {
+		console.log('Error, failed load');
 	})
 
 	$scope.$watch('todos', function() {
@@ -14,6 +26,15 @@ function TodoCtrl($scope, filterFilter, $http) {
 			{completed:false}).length;
 		$scope.allCheck = !$scope.remaining;
 	}, true)
+
+	if ($location.path() == '') {$location.path('/')}
+	$scope.location = $location;
+	$scope.$watch('location.path()', function(path) {
+		$scope.statusFilter =
+			(path == '/Active') ? {completed : false} :
+			(path == '/Done') ? {completed : true} :
+			null;
+	})
 
 	$scope.removeTodo = function(index) {
 		$scope.todos.splice(index, 1);
@@ -36,4 +57,4 @@ function TodoCtrl($scope, filterFilter, $http) {
 			todo.completed = allCheck;
 		})
 	}
-}
+})
