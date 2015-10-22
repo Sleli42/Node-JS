@@ -23,7 +23,7 @@ var Todo = mongoose.model('Todo', {
 	text : String
 });
 
-// routes =======================
+// routes = ======================
 
 app.get('/api/todos', function(req, res) {
 	// use mongoose to get all todos in the database
@@ -68,6 +68,11 @@ app.delete('/api/todos/:todo_id', function(req, res) {
 		});
 	});
 });
+
+// index.html route
+app.get('*', function(req, res) {
+	res.sendfile('./public/index.html');
+})
 
 // listen =======================
 
