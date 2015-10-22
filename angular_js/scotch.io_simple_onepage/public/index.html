@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="scotchApp">
+<head>
+	<!-- SCROLLS -->
+	<!-- load bootstrap && fontawesome via CDN -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+	<title></title>
+	<!-- SPELLS -->
+	<!-- load ANGULAR and angular route via CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="script.js"></script>
+</head>
+<body ng-controller="mainController">
+	<!-- HEADER && NAVBAR -->
+	<header>
+		<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Angular routing example</a>
+			</div>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="fa fa-home" href="#"> Home</a></li>
+				<li><a class="fa fa-shield" href="#about"> About</a></li>
+				<li><a class="fa fa-comment" href="#contact"> Contact</a></li>
+			</ul>
+		</div>
+		</nav>
+	</header>
+
+	<!-- MAIN CONTENT && INJECTED VIEWS -->
+	<div id="main">
+		{{ message }}
+		<!-- angular templating -->
+		<!-- this is where content will be injected -->
+	</div>
+</body>
+</html>
